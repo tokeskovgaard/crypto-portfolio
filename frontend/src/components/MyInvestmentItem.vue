@@ -43,8 +43,7 @@
 
 <script lang="ts">
     import {CoinInvestment} from "@/models/coin-investment";
-    import {Component, Vue} from 'vue-property-decorator';
-    import {Prop, Watch} from "vue-property-decorator";
+    import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
     import {Currency} from "@/models/currency";
     import {Getter, Mutation} from "vuex-class";
     import {ForexRate} from "@/models/forex-rate";

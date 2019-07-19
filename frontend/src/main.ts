@@ -8,17 +8,18 @@ import 'animate.css/animate.css';
 import router from './router';
 import store from "./store/store";
 
-import App from './App.vue';
+import App from '@/App';
 
 // Components
-import MyInvestmentItem from './components/MyInvestmentItem.vue';
-import CurrenciesPage from './pages/CurrenciesPage.vue';
-import TweenedNumber from './components/TweenedNumber.vue';
+import MyInvestmentItem from '@/components/MyInvestmentItem';
+import CurrenciesPage from '@/pages/CurrenciesPage';
+import TweenedNumber from '@/components/TweenedNumber';
 
 Vue.config.productionTip = false;
 
-
-Vue.use(Vuetify);
+Vue.use(Vuetify, {
+    iconfont: 'fa'
+});
 
 Vue.component('my-investment-item', MyInvestmentItem);
 Vue.component('my-currency-overview', CurrenciesPage);
@@ -29,4 +30,3 @@ new Vue({
     store,
     render: (h) => h(App),
 }).$mount('#app');
-

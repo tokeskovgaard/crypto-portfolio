@@ -47,11 +47,8 @@
         @Mutation("clearCoins", {namespace: "portfolio"}) readonly clearCoins: any;
         number = 0;
 
-        @Watch("coins")
+        @Watch("coins", {deep: true})
         coinDataChanged(coinData: CoinInvestment ) {
-            // let coin = this.coin(coinData.);
-            // coin.amount = coinData.amount ? Number(coinData.amount) : null;
-            // coin.currencyId = coinData.currencyId;
             this.saveCoins();
         }
 
