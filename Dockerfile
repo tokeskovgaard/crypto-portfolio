@@ -5,4 +5,5 @@ WORKDIR /usr/src/app
 
 COPY . .
 
+CMD ["npm", "run", "build"]
 CMD ["npm", "start"]
