@@ -7,10 +7,11 @@
     "build:frontend": "cd frontend && npm run build",
     "build": "npm run build:frontend && npm run build:server",
     "start:server": "cd server && npm run start",
-    "start": "npm run install:frontend && npm run install:server && npm run build && npm run start:server",
+    "start": "npm run build && npm run start:server",
     "test": "exit 0",
     "install:frontend": "cd frontend && npm install",
-    "install:server": "cd server && npm install"
+    "install:server": "cd server && npm install",
+    "postinstall": "npm run install:frontend && npm run install:server"
   },
   "dependencies": {},
   "devDependencies": {}
