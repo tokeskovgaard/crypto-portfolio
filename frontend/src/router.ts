@@ -7,27 +7,27 @@ import PortfolioPage from "@/pages/PortfolioPage.vue";
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      redirect: '/Home'
-    },
-    {
-      path: '/Home',
-      name: 'Invest',
-      component: PortfolioPage
-    },
-    {
-      path: '/Currencies',
-      name: 'Currencies',
-      component: CurrenciesPage
-    },
-    {
-      path: '/ForexRates',
-      name: 'ForexRates',
-      component: ForexRatesPage
-    }
-  ],
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+        {
+            path: '/',
+            redirect: '/Home',
+        },
+        {
+            path: '/Home',
+            name: 'Invest',
+            component: PortfolioPage,
+        },
+        {
+            path: '/Currencies',
+            name: 'Currencies',
+            component: CurrenciesPage,
+        },
+        {
+            path: '/ForexRates',
+            name: 'ForexRates',
+            component: ForexRatesPage,
+        },
+    ],
 });

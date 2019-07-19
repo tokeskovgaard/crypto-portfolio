@@ -1,6 +1,5 @@
-FROM node:9-slim
-ENV PORT 4000
-EXPOSE 4000
+FROM node:9-slim as builder
+
 WORKDIR /usr/src/app
 
 COPY . .

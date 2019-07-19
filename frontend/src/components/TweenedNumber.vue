@@ -4,8 +4,7 @@
 
 <script lang="ts">
     // import * as TWEEN from '@tweenjs/tween.js'
-    import { Component, Vue } from 'vue-property-decorator';
-    import {Prop, Watch} from "vue-property-decorator";
+    import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 
     @Component({
         props: {
@@ -16,8 +15,8 @@
     export default class TweenedNumber extends Vue {
         tweeningValue = '0';
         @Prop(Number) readonly value: number | undefined;
-        @Prop({default: 500,type: Number}) readonly tweenDuration: number | undefined;
-        @Prop({default: 2,type: Number}) readonly decimals: number | undefined;
+        @Prop({default: 500, type: Number}) readonly tweenDuration: number | undefined;
+        @Prop({default: 2, type: Number}) readonly decimals: number | undefined;
 
 
         get formattedTweeningValue() {
