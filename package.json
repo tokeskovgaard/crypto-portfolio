@@ -9,7 +9,8 @@
     "start": "cd server && npm run start",
     "test": "exit 0",
     "install:frontend": "cd frontend && npm install",
-    "install:server": "cd server && npm install"
+    "install:server": "cd server && npm install",
+    "setup": "npm run install:frontend && npm run install:server"
   },
   "dependencies": {},
   "devDependencies": {}

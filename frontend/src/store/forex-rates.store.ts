@@ -4,30 +4,30 @@ import {RootState} from "@/store/root-state";
 import {ForexRate} from "@/models/forex-rate";
 import {ForexRates} from "@/store/forex.rates";
 
-const state: ForexRates = {
+const forexRatesState: ForexRates = {
     forexRates: [],
     error: false,
-    selectedForexRate: null
+    selectedForexRate: null,
 };
 
 const actions: ActionTree<ForexRates, RootState> = {
     fetchData({commit}): any {
         axios({
-            url: 'http://data.fixer.io/api/latest?access_key=8a33da7791751dd88e4dc8ccc733a312'
-        }).then((response) => {
-            let payload: ForexRate[] = [];
-            for (let key in response.data.rates) {
+            url: 'http://data.fixer.io/api/latest?access_key=8a33da7791751dd88e4dc8ccc733a312',
+        }).then((response: any) => {
+            const payload: ForexRate[] = [];
+            for (const key in response.data.rates) {
                 payload.push({
                     kode: key,
-                    kurs: response.data.rates[key]
+                    kurs: response.data.rates[key],
                 });
             }
             commit('forexRatesLoaded', payload);
-        }, (error) => {
+        }, (error: any) => {
             console.log(error);
             commit('forexRatesError');
         });
-    }
+    },
 };
 
 const mutations: MutationTree<ForexRates> = {
@@ -44,15 +44,15 @@ const mutations: MutationTree<ForexRates> = {
 };
 const getters: GetterTree<ForexRates, RootState> = {
     forexRates: (state) => state.forexRates,
-    selectedForexRate: (state) => state.selectedForexRate
+    selectedForexRate: (state) => state.selectedForexRate,
 };
 const namespaced: boolean = true;
 
 
 export const ForexRatesStore: Module<ForexRates, RootState> = {
     namespaced,
-    state,
+    state: forexRatesState,
     getters,
     actions,
-    mutations
+    mutations,
 };

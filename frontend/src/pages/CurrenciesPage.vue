@@ -3,12 +3,12 @@
         <v-layout column>
             <h4>Markedet</h4>
             <v-data-table
-                    v-bind:headers="headers"
-                    v-bind:pagination.sync="pagination"
                     :items="currencies"
                     class="elevation-1"
+                    v-bind:headers="headers"
+                    v-bind:pagination.sync="pagination"
             >
-                <template slot="items" scope="props">
+                <template scope="props" slot="items">
                     <td>{{ props.item.rank }}</td>
                     <td>{{ props.item.name }}</td>
                     <td class="text-xs-right">{{ props.item.symbol }}</td>

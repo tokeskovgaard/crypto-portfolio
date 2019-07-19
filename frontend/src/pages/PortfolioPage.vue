@@ -8,12 +8,12 @@
                 <tweened-number :value="marketValue"/>
                 {{selectedForexRate? selectedForexRate.kode: ""}}
             </h6>
-            <transition-group name="list" tag="div" :duration="800"
-                              appear
-                              enter-active-class="animated bounceInLeft"
-                              leave-active-class="animated bounceOutLeft">
-                <my-investment-item v-for="(coin, index) in coins" :key="index" class="list-item"
-                                    :coin="coin"
+            <transition-group :duration="800" appear enter-active-class="animated bounceInLeft"
+                              leave-active-class="animated bounceOutLeft"
+                              name="list"
+                              tag="div">
+                <my-investment-item :coin="coin" :key="index" class="list-item"
+                                    v-for="(coin, index) in coins"
                 >
                 </my-investment-item>
             </transition-group>
@@ -48,10 +48,9 @@
         number = 0;
 
         @Watch("coins", {deep: true})
-        coinDataChanged(coinData: CoinInvestment ) {
+        coinDataChanged(coinData: CoinInvestment) {
             this.saveCoins();
         }
-
 
 
         get marketValue() {

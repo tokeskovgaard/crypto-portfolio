@@ -1,10 +1,9 @@
-FROM node:9-slim
-ENV PORT 4000
-EXPOSE 4000
+FROM node:9-slim as builder
+
 WORKDIR /usr/src/app
 
 COPY . .
-CMD ["npm", "run", "install:frontend"]
-CMD ["npm", "run", "install:server"]
-CMD ["npm", "run", "build"]
+RUN npm run setup
+RUN npm run build
+
 CMD ["npm", "start"]

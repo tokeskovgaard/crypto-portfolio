@@ -20,7 +20,7 @@
                     </v-list-tile>
                 </v-list>
             </v-navigation-drawer>
-            <v-toolbar fixed app>
+            <v-toolbar app fixed>
                 <v-toolbar-title v-text="title"></v-toolbar-title>
             </v-toolbar>
             <main>
@@ -42,8 +42,8 @@
 
     @Component
     export default class App extends Vue {
-        @Action('fetchData', { namespace: 'currencies' }) fetchCurrencies: any;
-        @Action('fetchData', { namespace: 'forexRates' }) fetchForexRates: any;
+        @Action('fetchData', {namespace: 'currencies'}) fetchCurrencies: any;
+        @Action('fetchData', {namespace: 'forexRates'}) fetchForexRates: any;
 
         title = 'INVEST dot Reimer Skovgaard dot DK';
 

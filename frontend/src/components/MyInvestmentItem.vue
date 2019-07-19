@@ -1,42 +1,42 @@
 <template>
     <v-layout row>
-        <v-flex xs5 sm4 md2>
+        <v-flex md2 sm4 xs5>
             <v-autocomplete
+                    item-text="name"
+                    item-value="id"
                     label="Mønt"
                     v-bind:items="currencies"
                     v-model="coin.currencyId"
-                    item-value="id"
-                    item-text="name"
             ></v-autocomplete>
         </v-flex>
-        <v-flex xs3 sm2 ml-1>
+        <v-flex ml-1 sm2 xs3>
             <v-text-field
-                    type="number"
                     label="Antal"
+                    type="number"
                     v-model="coin.amount">
             </v-text-field>
         </v-flex>
 
-        <v-flex xs3 sm2 ml-1>
+        <v-flex ml-1 sm2 xs3>
             <v-text-field
                     :label="label"
-                    v-model="value"
-                    disabled
                     class="alignLeft"
+                    disabled
+                    v-model="value"
             ></v-text-field>
         </v-flex>
-        <v-flex xs1 sm-2 ml-1>
-            <v-text-field label="1 Hour %" v-model="oneHourPercentage" disabled class="alignLeft"></v-text-field>
+        <v-flex ml-1 sm-2 xs1>
+            <v-text-field class="alignLeft" disabled label="1 Hour %" v-model="oneHourPercentage"></v-text-field>
         </v-flex>
-        <v-flex xs1 sm-2 ml-1>
-            <v-text-field label="24 Hour %" v-model="twentyfourHourPercentage" disabled
-                          class="alignLeft"></v-text-field>
+        <v-flex ml-1 sm-2 xs1>
+            <v-text-field class="alignLeft" disabled label="24 Hour %"
+                          v-model="twentyfourHourPercentage"></v-text-field>
         </v-flex>
-        <v-flex xs1 sm-2 ml-1>
-            <v-text-field label="7 Day %" v-model="sevenDaysPercentage" disabled class="alignLeft"></v-text-field>
+        <v-flex ml-1 sm-2 xs1>
+            <v-text-field class="alignLeft" disabled label="7 Day %" v-model="sevenDaysPercentage"></v-text-field>
         </v-flex>
-        <v-flex xs1 sm-2 ml-1>
-            <v-btn light flat v-on:click="removeCoin(coin)">Slet</v-btn>
+        <v-flex ml-1 sm-2 xs1>
+            <v-btn flat light v-on:click="removeCoin(coin)">Slet</v-btn>
         </v-flex>
     </v-layout>
 </template>

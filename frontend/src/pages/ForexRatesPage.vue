@@ -3,12 +3,12 @@
         <v-layout column>
             <h4>Forex kurser</h4>
             <v-data-table
-                    v-bind:headers="headers"
-                    v-bind:pagination.sync="pagination"
                     :items="forexRates"
                     class="elevation-1"
+                    v-bind:headers="headers"
+                    v-bind:pagination.sync="pagination"
             >
-                <template slot="items" scope="props">
+                <template scope="props" slot="items">
                     <td>{{ props.item.kode}}</td>
                     <td>{{ props.item.kurs }}</td>
                 </template>
