@@ -1,16 +1,16 @@
 {
-  "name": "crypto-portofolio",
+  "name": "crypto-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "npm run serve",
+    "start": "npm run build",
     "test": "exit 0"
   },
   "dependencies": {
-    "@tweenjs/tween.js": "^17.4.0",
+    "@tweenjs/tween.js": "^17.2.0",
     "@types/tween.js": "^17.2.0",
     "@types/uuid": "^3.4.5",
     "animate.css": "^3.7.2",

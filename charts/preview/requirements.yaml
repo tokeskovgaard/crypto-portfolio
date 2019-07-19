@@ -12,5 +12,5 @@ dependencies:
   # !! "alias: preview" must be last entry in dependencies array !!
   # !! Place custom dependencies above !!
 - alias: preview
-  name: crypto-portofolio
-  repository: file://../crypto-portofolio
+  name: crypto-portfolio
+  repository: file://../crypto-portfolio

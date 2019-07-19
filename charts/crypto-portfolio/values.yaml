@@ -14,7 +14,7 @@ env:
 knativeDeploy: false
 
 service:
-  name: crypto-portofolio
+  name: crypto-portfolio
   type: ClusterIP
   externalPort: 80
   internalPort: 8080

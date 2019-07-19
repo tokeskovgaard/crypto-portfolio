@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import CurrenciesPage from "@/pages/CurrenciesPage.vue";
 import ForexRatesPage from "@/pages/ForexRatesPage.vue";
-import PortofolioPage from "@/pages/PortofolioPage.vue";
+import PortfolioPage from "@/pages/PortfolioPage.vue";
 
 Vue.use(Router);
 
@@ -17,7 +17,7 @@ export default new Router({
     {
       path: '/Home',
       name: 'Invest',
-      component: PortofolioPage
+      component: PortfolioPage
     },
     {
       path: '/Currencies',
