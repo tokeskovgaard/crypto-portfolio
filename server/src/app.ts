@@ -6,11 +6,7 @@ const app = express();
 
 app.use(morgan('tiny'));
 app.use(cors());
-app.use(express.static('../dist'))
-
-app.get('/', (req, res) => {
-    res.json({message: 'Behold The MEVN Stack!'});
-});
+app.use(express.static('../frontend/dist'))
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

@@ -12,7 +12,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
-    "ts-node-dev": "^1.0.0-pre.40"
+    "ts-node-dev": "^1.0.0-pre.40",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.5",
