@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-    import * as TWEEN from '@tweenjs/tween.js'
+    // import * as TWEEN from '@tweenjs/tween.js'
     import { Component, Vue } from 'vue-property-decorator';
     import {Prop, Watch} from "vue-property-decorator";
 
@@ -35,28 +35,28 @@
 
         // This is our main logic block. It handles tweening from a start value to an end value.
         tween(start: any, end: any) {
-            let vm = this;
-            let frameHandler: any;
-
-            const animate = function (currentTime: any) {
-                TWEEN.update(currentTime);
-                frameHandler = requestAnimationFrame(animate);
-            };
-
-            let oldValue = parseFloat(start) || 0;
-            let newValue = parseFloat(end) || 0;
-            new TWEEN.Tween({tweeningNumber: oldValue})
-                .easing(TWEEN.Easing.Quadratic.Out)
-                .to({tweeningNumber: newValue}, vm.tweenDuration)
-                .onUpdate(function () {
-                    // vm.tweeningValue = this.tweeningNumber;
-                })
-                .onComplete(() => {
-                    cancelAnimationFrame(frameHandler);
-                })
-                .start();
-
-            frameHandler = requestAnimationFrame(animate);
+            // let vm = this;
+            // let frameHandler: any;
+            //
+            // const animate = function (currentTime: any) {
+            //     TWEEN.update(currentTime);
+            //     frameHandler = requestAnimationFrame(animate);
+            // };
+            //
+            // let oldValue = parseFloat(start) || 0;
+            // let newValue = parseFloat(end) || 0;
+            // new TWEEN.Tween({tweeningNumber: oldValue})
+            //     .easing(TWEEN.Easing.Quadratic.Out)
+            //     .to({tweeningNumber: newValue}, vm.tweenDuration)
+            //     .onUpdate(function () {
+            //         // vm.tweeningValue = this.tweeningNumber;
+            //     })
+            //     .onComplete(() => {
+            //         cancelAnimationFrame(frameHandler);
+            //     })
+            //     .start();
+            //
+            // frameHandler = requestAnimationFrame(animate);
         }
     }
 </script>
