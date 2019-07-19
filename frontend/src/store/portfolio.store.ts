@@ -6,7 +6,7 @@ import {RootState} from "@/store/root-state";
 import {Portfolio} from "@/store/portfolio";
 import uuid from 'uuid/v4';
 
-const state: Portfolio = {
+const portfolioState: Portfolio = {
     coins: [],
 };
 
@@ -60,7 +60,7 @@ const getters: GetterTree<Portfolio, RootState> = {
 
 export const PortfolioStore: Module<Portfolio, RootState> = {
     namespaced,
-    state,
+    state: portfolioState,
     getters,
     actions,
     mutations,

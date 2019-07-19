@@ -4,7 +4,7 @@ import {RootState} from "@/store/root-state";
 import {Currency} from "@/models/currency";
 import {Currencies} from "@/store/currencies";
 
-const state: Currencies = {
+const currenciesState: Currencies = {
     currencies: [],
     error: false,
     selectedCurrency: new Currency('DKK', 7),
@@ -14,11 +14,11 @@ const actions: ActionTree<Currencies, RootState> = {
     fetchData({commit}): any {
         axios({
             url: 'https://api.coinmarketcap.com/v1/ticker/?convert=EUR&limit=0',
-        }).then((response) => {
+        }).then((response: {data: Currency[]}) => {
             const payload: Currency[] = response && response.data;
 
             commit('currenciesLoaded', payload);
-        }, (error) => {
+        }, (error: any) => {
             console.log(error);
             commit('currenciesError');
         });
@@ -46,7 +46,7 @@ const namespaced: boolean = true;
 
 export const CurrenciesStore: Module<Currencies, RootState> = {
     namespaced,
-    state,
+    state: currenciesState,
     getters,
     actions,
     mutations,
