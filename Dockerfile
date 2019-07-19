@@ -4,6 +4,8 @@ EXPOSE 4000
 WORKDIR /usr/src/app
 
 COPY . .
+RUN npm install
 
-CMD ["npm", "run", "build"]
+RUN npm run build
+
 CMD ["npm", "start"]
