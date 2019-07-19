@@ -3,7 +3,7 @@
         <v-progress-linear v-bind:indeterminate="true"
                            v-show="currencies.length == 0"></v-progress-linear>
         <v-layout column v-if="currencies.length > 0">
-            <h4>Portofolio</h4>
+            <h4>Portfolio</h4>
             <h6>Markedsværdien af mønterne er:
                 <tweened-number :value="marketValue"/>
                 {{selectedForexRate? selectedForexRate.kode: ""}}
@@ -34,7 +34,7 @@
     import {ForexRate} from "@/models/forex-rate";
 
     @Component
-    export default class PortofolioPage extends Vue {
+    export default class PortfolioPage extends Vue {
 
         @Action('loadCoins', {namespace: "portfolio"}) loadCoins: any;
         @Action("saveCoins", {namespace: "portfolio"}) readonly saveCoins: any;

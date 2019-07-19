@@ -1,14 +1,13 @@
 <template>
     <v-layout row>
         <v-flex xs5 sm4 md2>
-            <v-select
+            <v-autocomplete
                     label="Mønt"
                     v-bind:items="currencies"
                     v-model="coin.currencyId"
                     item-value="id"
                     item-text="name"
-                    autocomplete
-            ></v-select>
+            ></v-autocomplete>
         </v-flex>
         <v-flex xs3 sm2 ml-1>
             <v-text-field
@@ -59,57 +58,50 @@
         @Getter("currencies", {namespace: "currencies"}) readonly currencies: Currency[] | undefined;
         @Getter("selectedForexRate", {namespace: "forexRates"}) readonly selectedForexRate: ForexRate | undefined;
 
-        @Watch("coin",{deep: true})
+        @Watch("coin", {deep: true})
         onValuesChanged() {
             this.updateCoin(this.coin);
         };
-
 
         get label() {
             return "værdi i " + (this.selectedForexRate ? this.selectedForexRate.kode : "");
         }
 
         get value() {
-            if(this.coin)
-            if (this.coin.amount !== undefined && this.coin.currencyId !== undefined) {
-                let currency = this.findCurrency(this.coin.currencyId);
-                if (currency) {
-                    let value = <number>currency.price_usd * <number>this.coin.amount;
-                    value = this.selectedForexRate
-                        ? this.selectedForexRate.kurs * value
-                        : value;
-                    return Number(parseFloat(value.toString()).toFixed(2)).toLocaleString();
+            if (this.coin)
+                if (this.coin.amount !== undefined && this.coin.currencyId !== undefined) {
+                    let currency = this.findCurrency(this.coin.currencyId);
+                    if (currency) {
+                        let value = <number>currency.price_usd * <number>this.coin.amount;
+                        value = this.selectedForexRate
+                            ? this.selectedForexRate.kurs * value
+                            : value;
+                        return Number(parseFloat(value.toString()).toFixed(2)).toLocaleString();
+                    }
+                    return 0;
                 }
-                return 0;
-            }
             return null;
         }
 
         get oneHourPercentage() {
-            if(!this.coin) return;
+            if (!this.coin) return;
             let currency = this.findCurrency(this.coin.currencyId);
             return currency == null ? null : currency.percent_change_1h + "%";
         }
 
         get twentyfourHourPercentage() {
-            if(!this.coin) return;
+            if (!this.coin) return;
             let currency = this.findCurrency(this.coin.currencyId);
             if (currency)
                 return currency == null ? null : currency.percent_change_24h + "%";
         }
 
         get sevenDaysPercentage() {
-            if(!this.coin) return;
+            if (!this.coin) return;
             let currency = this.findCurrency(this.coin.currencyId);
             return currency == null ? null : currency.percent_change_7d + "%";
         }
 
-        emitRemoveCoin() {
-            this.$emit(
-                "remove-coin",
-                new CoinInvestment(this.index, this.currencyId, this.amount)
-            );
-        }
 
         findCurrency(currencyId: any) {
             if (currencyId && this.currencies) {

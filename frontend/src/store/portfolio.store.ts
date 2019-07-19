@@ -24,7 +24,6 @@ const actions: ActionTree<Portfolio, RootState> = {
 
 const mutations: MutationTree<Portfolio> = {
     addCoin(state) {
-        console.log(uuid());
         state.coins.push(new CoinInvestment(uuid(), null, 0));
     },
     updateCoin(state, coin: CoinInvestment) {
